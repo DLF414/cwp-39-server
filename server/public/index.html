@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CWP39</title>
+  <link rel="stylesheet" type="text/css" href="css/App.css">
+
+  <script type="text/babel" src="js/Constants.js"></script>
+  <script src="js/libs/createSagaMiddleWareWrapper.js"></script>
+  <script src="js/libs/react.development.js"></script>
+  <script src="js/libs/react-dom.production.min.js"></script>
+  <script src="js/libs/redux.js"></script>
+  <script src="js/libs/react-redux.js"></script>
+  <script src="js/libs/babel.min.js"></script>
+  <script src="js/libs/polyfill.min.js"></script>
+  <script src="js/libs/redux-saga.min.js"></script>
+  <script src="js/libs/ReactRouterRedux.min.js"></script>
+  <script src="js/ApiCast.js"></script>
+  <script src="js/Reducers.js"></script>
+  <script src="js/sagas/servercasts.js"></script>
+  <script src="js/sagas/connectSaga.js"></script> <!-- Add sagas to global environment -->
+  <script src="js/Store.js"></script>
+  <script type="text/babel" src="components/MainSummary.js"></script>
+  <script type="text/babel" src="components/EditRouteComponent.js"></script>
+  <script type="text/babel" src="components/RouteLine.js"></script>
+  <script type="text/babel" src="components/ToDoList.js"></script>
+  <script type="text/babel" src="components/ToDoForm.js"></script>
+  <script type="text/babel" src="components/NavItem.js"></script>
+  <script type="text/babel" src="components/Nav.js"></script>
+  <script type="text/babel" src="components/MainComponent.js"></script>
+  <script type="text/babel" src="js/helper.js"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="text/babel">
+    const MainContainer = ReactRedux.connect(mapStateToProps, mapDispatchToProps)(MainComponent);
+
+function render() {
+  ReactDOM.render(
+  <ReactRedux.Provider store={store}>
+    <MainContainer/>
+  </ReactRedux.Provider>,
+  document.getElementById('app'));
+}
+
+render();
+store.subscribe(render)
+</script>
+</body>
+
+</html>
